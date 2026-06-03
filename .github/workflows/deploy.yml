@@ -28,7 +28,31 @@ jobs:
         env:
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
 
-      - name: Deploy to Vercel (Production)
-        run: npx -y vercel@latest deploy --prebuilt --prod --token=${{ secrets.VERCEL_TOKEN }}
+      - name: Deploy to Vercel (Production) and capture URL
+        id: deploy
+        run: |
+          OUTPUT=$(npx -y vercel@latest deploy --prebuilt --prod --token=${{ secrets.VERCEL_TOKEN }} 2>&1)
+          echo "$OUTPUT"
+          URL=$(echo "$OUTPUT" | grep -oE 'https://[^ ]+\.vercel\.app' | head -1)
+          echo "DEPLOY_URL=$URL"
+          echo "## GoalMind AI Deployed" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "**Production URL:** $URL" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "Open the URL above in your browser." >> $GITHUB_STEP_SUMMARY
+          echo "deploy_url=$URL" >> $GITHUB_OUTPUT
         env:
           VERCEL_TOKEN: ${{ secrets.VERCEL_TOKEN }}
+
+      - name: Verify deployment
+        if: steps.deploy.outputs.deploy_url != ''
+        run: |
+          URL="${{ steps.deploy.outputs.deploy_url }}"
+          echo "Testing URL: $URL"
+          HTTP_CODE=$(curl -s -o /dev/null -w "%{http_code}" -L "$URL" || echo "000")
+          echo "HTTP status: $HTTP_CODE"
+          if [ "$HTTP_CODE" = "200" ]; then
+            echo "Deployment verified."
+          else
+            echo "WARNING: URL returned $HTTP_CODE"
+          fi
