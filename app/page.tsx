@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { matches6_3, modelStats, newsItems, execRecord } from '@/lib/data';
+import { matches6_3, matches6_5, modelStats, newsItems, execRecord } from '@/lib/data';
 import MatchCard from '@/components/MatchCard';
 
 const colorClass = (c?: string) => {
@@ -11,8 +11,10 @@ const colorClass = (c?: string) => {
 };
 
 export default function HomePage() {
-  const upcoming = matches6_3.filter(m => m.status === 'upcoming');
-  const finished = matches6_3.filter(m => m.status === 'finished');
+  // 合并历史（6月2-3日 已完赛）+ 今日（6月5日 12场预测）
+  const allMatches = [...matches6_3, ...matches6_5];
+  const upcoming = matches6_5.filter(m => m.status === 'upcoming');
+  const finished = allMatches.filter(m => m.status === 'finished');
 
   return (
     <div>
@@ -20,7 +22,7 @@ export default function HomePage() {
       <div className="gradient-border glow mb-8 p-8" style={{ background: 'var(--gradient-dark)' }}>
         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full mb-4" style={{ background: 'rgba(212, 175, 55, 0.1)', border: '1px solid rgba(212, 175, 55, 0.3)' }}>
           <span className="w-1.5 h-1.5 rounded-full" style={{ background: 'var(--accent-gold)' }}></span>
-          <span className="text-[11px] font-semibold tracking-wide" style={{ color: 'var(--accent-gold)' }}>6月3日 · 副业小试水套餐</span>
+          <span className="text-[11px] font-semibold tracking-wide" style={{ color: 'var(--accent-gold)' }}>6月5日 · 国际比赛日 12 场预测</span>
         </div>
         <h1 className="font-display font-extrabold text-3xl md:text-4xl leading-tight mb-3">
           AI 透明化 + 副业小试水 = <span className="gradient-text">月入几千的稳健路径</span>
@@ -51,18 +53,17 @@ export default function HomePage() {
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
         <div className="lg:col-span-2 card">
           <div className="flex items-center justify-between mb-5">
-            <h2 className="font-display font-bold text-lg m-0">今日预测 · {matches6_3.length} 场</h2>
+            <h2 className="font-display font-bold text-lg m-0">今日预测 · {allMatches.length} 场（6月5日 {matches6_5.length} 场）</h2>
             <span className="text-xs" style={{ color: 'var(--text-muted)' }}>{finished.length} 场已完成 · {upcoming.length} 场未开赛</span>
           </div>
           <div className="flex gap-2 mb-5 flex-wrap">
-            <button className="btn-ghost text-[11px]" style={{ padding: '6px 12px', background: 'rgba(212, 175, 55, 0.1)', borderColor: 'var(--accent-gold)', color: 'var(--accent-gold)' }}>★★★★+ (4)</button>
-            <button className="btn-ghost text-[11px]" style={{ padding: '6px 12px' }}>★★★ (4)</button>
-            <button className="btn-ghost text-[11px]" style={{ padding: '6px 12px' }}>★★以下 (2)</button>
-            <button className="btn-ghost text-[11px]" style={{ padding: '6px 12px' }}>主动放弃 (5)</button>
+            <button className="btn-ghost text-[11px]" style={{ padding: '6px 12px', background: 'rgba(212, 175, 55, 0.1)', borderColor: 'var(--accent-gold)', color: 'var(--accent-gold)' }}>★★★★+ (5)</button>
+            <button className="btn-ghost text-[11px]" style={{ padding: '6px 12px' }}>★★★ (3)</button>
+            <button className="btn-ghost text-[11px]" style={{ padding: '6px 12px' }}>主动放弃 (4)</button>
           </div>
           <div className="scroll-x">
             <div className="flex gap-3 pb-2" style={{ minWidth: 'max-content' }}>
-              {matches6_3.map(m => <MatchCard key={m.id} match={m} compact />)}
+              {allMatches.map(m => <MatchCard key={m.id} match={m} compact />)}
             </div>
           </div>
         </div>
