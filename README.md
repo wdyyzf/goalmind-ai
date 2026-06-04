@@ -1,7 +1,18 @@
 # GoalMind AI — MVP Demo
 
 > **足球预测综合平台 · 副业小试水套餐**
-> 模型 v3.0 Micro+ 200 套餐 · 12 条补丁 · 5 问过滤器
+> 模型 v3.0 Micro+ 200 套餐 · 14 条补丁 · 6 问过滤器
+
+## 🚀 一键部署（4 选 1）
+
+| 平台 | 按钮 | 备注 |
+|---|---|---|
+| **Vercel** | [![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https://github.com/wdyyzf/goalmind-ai) | 你之前用 Vercel 卡 SSO，可重试 |
+| **Netlify** | [![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/wdyyzf/goalmind-ai) | **推荐** · 无 SSO 强制 · 公开访问 |
+| **Cloudflare Pages** | [![Deploy to Cloudflare](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/wdyyzf/goalmind-ai) | 亚洲 CDN 最快 |
+| **Render** | [![Deploy to Render](https://render.com/images/deploy-to-render-button.svg)](https://render.com/deploy?repo=https://github.com/wdyyzf/goalmind-ai) | 简单稳定 |
+
+> **点上面任意按钮 → 登录 → Deploy → 拿到 URL。** 3 步搞定（OAuth 登录是必须的，没法绕过）。
 
 ## 🎯 产品定位
 
@@ -33,13 +44,17 @@ goalmind-ai/
 │   └── MatchCard.tsx           # 比赛卡片
 ├── lib/
 │   ├── types.ts                # TypeScript 类型
-│   └── data.ts                 # 真实数据（22场样本 + 12 条补丁 + 5 问过滤器）
+│   └── data.ts                 # 真实数据（22场样本 + 14 条补丁 + 6 问过滤器）
+├── .github/
+│   └── workflows/
+│       └── deploy.yml          # GitHub Actions 自动部署（Vercel）
 ├── package.json
 ├── tailwind.config.js
 ├── postcss.config.js
 ├── next.config.js
 ├── tsconfig.json
-├── vercel.json                 # Vercel 部署配置
+├── vercel.json                 # Vercel 部署配置（Hobby 兼容）
+├── netlify.toml                # Netlify 部署配置
 ├── .gitignore
 └── README.md
 ```
@@ -49,10 +64,6 @@ goalmind-ai/
 ```bash
 # 1. 安装依赖
 npm install
-# 或
-pnpm install
-# 或
-yarn install
 
 # 2. 启动开发服务器
 npm run dev
@@ -60,60 +71,13 @@ npm run dev
 # 3. 访问 http://localhost:3000
 ```
 
-## 🌐 部署到 Vercel（5 分钟）
-
-### 方式 1：GitHub + Vercel 一键部署（推荐）
-
-```bash
-# 1. 创建 GitHub 仓库
-git init
-git add .
-git commit -m "feat: GoalMind AI MVP demo"
-git branch -M main
-git remote add origin https://github.com/你的用户名/goalmind-ai.git
-git push -u origin main
-
-# 2. 在 Vercel 导入仓库
-#    访问 https://vercel.com/new
-#    选择你的 GitHub 仓库
-#    Vercel 自动检测 Next.js
-#    点击 Deploy
-#    等待 1-2 分钟 → 拿到 goalmind-ai.vercel.app
-```
-
-### 方式 2：Vercel CLI 一键部署
-
-```bash
-# 1. 安装 Vercel CLI
-npm i -g vercel
-
-# 2. 登录
-vercel login
-
-# 3. 部署
-vercel
-
-# 4. 部署到生产环境
-vercel --prod
-```
-
-### 方式 3：自定义域名（goalMind.ai）
-
-```bash
-# 1. 在 Vercel 项目设置中添加域名 goalmind.ai
-# 2. 在域名注册商（阿里云万网/Cloudflare）配置 DNS:
-#    A 记录: @  → 76.76.21.21
-#    CNAME 记录: www → cname.vercel-dns.com
-# 3. 等待 DNS 传播（5-30 分钟）
-```
-
 ## 📊 4 个核心页面
 
 | 页面 | URL | 内容 |
 |---|---|---|
 | **首页** | `/` | Hero + 4 卡片统计 + 今日预测 + 副业套餐 + 模型动态 + 新闻 |
-| **预测中心** | `/predictions` | 5 问过滤器状态 + 印尼vs也门深度预测 + 12 条补丁 + 反对论点 |
-| **模型解读** | `/model` | 4 卡片战绩 + 12 条补丁 P0-P3 优先级树 + 模型演进日志 |
+| **预测中心** | `/predictions` | 6 问过滤器状态 + 印尼vs也门深度预测 + 14 条补丁 + 反对论点 |
+| **模型解读** | `/model` | 4 卡片战绩 + 14 条补丁 P0-P3 优先级树 + 模型演进日志 |
 | **副业套餐** | `/side` | 5 大不变量 + 6月3日套餐 + 资金管理 + 反人性规则 |
 
 ## ⚠️ 法律合规
@@ -127,7 +91,7 @@ vercel --prod
 ### Phase 1 (当前) — MVP
 - ✅ 单文件 HTML demo（已完成）
 - ✅ Next.js 完整项目（已完成）
-- ⏳ Vercel 部署（用户执行）
+- ⏳ **部署待用户选择平台**（4 选 1，OAuth 登录 + Deploy 即可）
 
 ### Phase 2 (1-2 周) — 内容运营
 - [ ] 球迷屋数据抓取 API
