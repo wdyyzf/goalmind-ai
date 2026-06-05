@@ -11,7 +11,8 @@ export const matches6_5: Match[] = [
     away: "伊拉克",
     homeIcon: "ESP",
     awayIcon: "IRQ",
-    status: "upcoming",
+    status: "finished",
+    score: { home: 1, away: 1 },
     score: { home: 0, away: 0 },
     prediction: {
       direction: "西班牙胜",
@@ -20,9 +21,9 @@ export const matches6_5: Match[] = [
       overUnder: "大球",
       goals: "2-3球",
     },
-    actual: null,
+    actual: { directionHit: false, asianHit: null, goalsHit: true },
     highlight: true,
-    liveWarning: "★★★★ FIFA #2 vs #57 · 身价60倍 · 西班牙大面积轮换（亚马尔/尼科/拉亚伤缺）· 跨大洲-1档 · 反对：轮换+草皮差",
+    liveWarning: "★★★★ FIFA #2 vs #57 · 身价60倍 · 西班牙大面积轮换（亚马尔/尼科/拉亚伤缺）· 跨大洲-1档 · 反对：轮换+草皮差 · ❌ 1-1 伊拉克萨阿德32'破门 奥尔莫90'绝平 · 草皮+轮换反对论点全部命中 · 模型应降至★★",
   },
   {
     id: "fra-civ",
@@ -33,7 +34,8 @@ export const matches6_5: Match[] = [
     away: "科特迪瓦",
     homeIcon: "FRA",
     awayIcon: "CIV",
-    status: "upcoming",
+    status: "finished",
+    score: { home: 1, away: 2 },
     score: { home: 0, away: 0 },
     prediction: {
       direction: "法国胜",
@@ -42,9 +44,9 @@ export const matches6_5: Match[] = [
       overUnder: "大球",
       goals: "2-3球",
     },
-    actual: null,
+    actual: { directionHit: false, asianHit: null, goalsHit: true },
     highlight: true,
-    liveWarning: "★★★★ FIFA #1 vs #34 · 萨利巴/登贝莱/巴尔科拉轮休 · 姆巴佩追平吉鲁57球 · 跨大洲-1档 · 反对：法科青训内战",
+    liveWarning: "★★★★ FIFA #1 vs #34 · 萨利巴/登贝莱/巴尔科拉轮休 · 姆巴佩追平吉鲁57球 · 跨大洲-1档 · 反对：法科青训内战 · ❌ 1-2 法国队史首次输科特迪瓦 · 谢尔基45'破门后塞拉-杜埃+迪亚洛反超 · 客队3大归化核心决定性",
   },
   {
     id: "ber-biz",
@@ -76,7 +78,8 @@ export const matches6_5: Match[] = [
     away: "危地马拉",
     homeIcon: "CZE",
     awayIcon: "GUA",
-    status: "upcoming",
+    status: "finished",
+    score: { home: 3, away: 1 },
     score: { home: 0, away: 0 },
     prediction: {
       direction: "捷克胜",
@@ -85,8 +88,8 @@ export const matches6_5: Match[] = [
       overUnder: "大球",
       goals: "2-3球",
     },
-    actual: null,
-    liveWarning: "★★★★ FIFA #36 vs #107 · 身价15倍 · 跨大洲-1档 · 反对：友谊赛+主队无战意",
+    actual: { directionHit: true, asianHit: null, goalsHit: false },
+    liveWarning: "★★★★ FIFA #36 vs #107 · 身价15倍 · 跨大洲-1档 · 反对：友谊赛+主队无战意 · ✅方向 4球超出2-3上沿 · 绍切克/赫拉纳克/库切拉进球 · 友谊赛补丁K命中",
   },
   {
     id: "mex-srb",
@@ -97,7 +100,8 @@ export const matches6_5: Match[] = [
     away: "塞尔维亚",
     homeIcon: "MEX",
     awayIcon: "SRB",
-    status: "upcoming",
+    status: "finished",
+    score: { home: 5, away: 1 },
     score: { home: 0, away: 0 },
     prediction: {
       direction: "墨西哥胜",
@@ -106,8 +110,8 @@ export const matches6_5: Match[] = [
       overUnder: "大球",
       goals: "2-3球",
     },
-    actual: null,
-    liveWarning: "★★★★ FIFA #15 vs #33 · 身价2.5倍 · 核心伤缺（阿尔瓦雷斯/蒙特斯/希门尼斯）· 跨大洲-1档",
+    actual: { directionHit: true, asianHit: null, goalsHit: false },
+    liveWarning: "★★★★ FIFA #15 vs #33 · 身价2.5倍 · 核心伤缺（阿尔瓦雷斯/蒙特斯/希门尼斯）· 跨大洲-1档 · ✅方向 6球远超2-3 · 阿尔瓦雷斯梅开二度 · 跨大洲友谊赛补丁K命中",
   },
   {
     id: "jam-rsa",
@@ -118,7 +122,7 @@ export const matches6_5: Match[] = [
     away: "南非",
     homeIcon: "JAM",
     awayIcon: "RSA",
-    status: "upcoming",
+    status: "pending",
     score: { home: 0, away: 0 },
     prediction: {
       direction: "主动放弃",
@@ -139,7 +143,8 @@ export const matches6_5: Match[] = [
     away: "中国",
     homeIcon: "SGP",
     awayIcon: "CHN",
-    status: "upcoming",
+    status: "finished",
+    score: { home: 1, away: 2 },
     score: { home: 0, away: 0 },
     prediction: {
       direction: "中国胜",
@@ -148,9 +153,9 @@ export const matches6_5: Match[] = [
       overUnder: "小球",
       goals: "1-2球",
     },
-    actual: null,
+    actual: { directionHit: true, asianHit: null, goalsHit: false },
     highlight: true,
-    liveWarning: "★★★ FIFA #147 vs #94 · 武磊百场纪念仅踢几分钟 · 朱辰杰/蒋光太/林良铭伤停 · 反对：伤停+客场+友谊赛3重不利 · 邵佳一新教练",
+    liveWarning: "★★★ FIFA #147 vs #94 · 武磊百场纪念仅踢几分钟 · 朱辰杰/蒋光太/林良铭伤停 · 反对：伤停+客场+友谊赛3重不利 · 邵佳一新教练 · ✅方向 3球超出1-2上沿 · 张玉宁点球+王钰栋 · 邵佳一执教首秀胜",
   },
   {
     id: "hkg-mng",
@@ -161,7 +166,7 @@ export const matches6_5: Match[] = [
     away: "蒙古",
     homeIcon: "HKG",
     awayIcon: "MNG",
-    status: "upcoming",
+    status: "pending",
     score: { home: 0, away: 0 },
     prediction: {
       direction: "主动放弃",
@@ -182,7 +187,7 @@ export const matches6_5: Match[] = [
     away: "毛里塔尼亚",
     homeIcon: "NER",
     awayIcon: "MTN",
-    status: "upcoming",
+    status: "pending",
     score: { home: 0, away: 0 },
     prediction: {
       direction: "主动放弃",
@@ -203,7 +208,8 @@ export const matches6_5: Match[] = [
     away: "科威特",
     homeIcon: "THA",
     awayIcon: "KUW",
-    status: "upcoming",
+    status: "finished",
+    score: { home: 2, away: 2 },
     score: { home: 0, away: 0 },
     prediction: {
       direction: "泰国胜",
@@ -212,8 +218,8 @@ export const matches6_5: Match[] = [
       overUnder: "大球",
       goals: "2-3球",
     },
-    actual: null,
-    liveWarning: "★★★ FIFA #82 vs #126 · 身价2.5倍 · 亚洲内战 · 反对：友谊赛双方无战意",
+    actual: { directionHit: false, asianHit: null, goalsHit: false },
+    liveWarning: "★★★ FIFA #82 vs #126 · 身价2.5倍 · 亚洲内战 · 反对：友谊赛双方无战意 · ❌ 2-0领先被89'补时绝平 · 完美验证友谊赛补丁K · 应在2-0 60分钟后直接放弃",
   },
   {
     id: "ina-oma",
@@ -224,7 +230,7 @@ export const matches6_5: Match[] = [
     away: "阿曼",
     homeIcon: "INA",
     awayIcon: "OMA",
-    status: "upcoming",
+    status: "pending",
     score: { home: 0, away: 0 },
     prediction: {
       direction: "印尼胜",
@@ -246,7 +252,7 @@ export const matches6_5: Match[] = [
     away: "印度",
     homeIcon: "TJK",
     awayIcon: "IND",
-    status: "upcoming",
+    status: "pending",
     score: { home: 0, away: 0 },
     prediction: {
       direction: "主动放弃",
@@ -348,11 +354,37 @@ export const patches: Patch[] = [
 ];
 
 export const modelStats: ModelStat[] = [
-  { label: '方向准确率', value: '89%', color: 'emerald', trend: 'stable' },
+  { label: '方向准确率', value: '73%', color: 'emerald', trend: 'down' },
   { label: '让球规避', value: '100%', color: 'gold', trend: 'up' },
-  { label: '进球准确率', value: '50%', color: 'amber', trend: 'stable' },
-  { label: '主动放弃率', value: '33%', color: 'crimson', trend: 'up' },
+  { label: '进球准确率', value: '27%', color: 'amber', trend: 'down' },
+  { label: '主动放弃率', value: '27%', color: 'crimson', trend: 'up' },
 ];
+
+// 6月5日 战报（11 场 A 级成年男子国际赛 / 6 场已完赛 5 场数据延迟）
+export const report6_5 = {
+  date: '2026-06-05',
+  matchesTotal: 11,
+  matchesFinished: 6,
+  matchesPending: 5,
+  results: [
+    { id: 'esp-irq', actual: '1-1', directionHit: false, goalsHit: true, note: '草皮+轮换反对论点全命中' },
+    { id: 'fra-civ', actual: '1-2', directionHit: false, goalsHit: true, note: '法国队史首负科特迪瓦' },
+    { id: 'cze-gua', actual: '3-1', directionHit: true, goalsHit: false, note: '方向对 4球超 2-3' },
+    { id: 'mex-srb', actual: '5-1', directionHit: true, goalsHit: false, note: '方向对 6球远超' },
+    { id: 'sgp-chn', actual: '1-2', directionHit: true, goalsHit: false, note: '方向对 3球超 1-2' },
+    { id: 'tha-kuw', actual: '2-2', directionHit: false, goalsHit: false, note: '2-0 领先 89'补时被逼平' },
+  ],
+  summary: '方向 3/6=50% · 让球 0/6=0% · 进球 2/6=33% · 主动放弃 3/11=27%',
+  lessons: [
+    '补丁L 反对论点强制扣星（≥1条-1星 ≥2条-2星 ≥3条放弃）',
+    '补丁K 升级 友谊赛细分（2-0 60 分钟+/客队3+五大核心/同大洲必放弃）',
+    '补丁M 中国 6 月友谊赛 3-4 球区间',
+    '补丁N 法国 vs 非洲归化强队 必放弃友谊赛方向',
+    '补丁O 墨西哥友谊赛 3-5 球区间',
+    '补丁P 友谊赛默认 3-4 球（首日 67% 3 球+ 概率）',
+  ],
+  fullReportPath: '/skills/football-prediction/outputs/2026-06-05/review_20260605.md',
+};
 
 export const newsItems = [
   { date: '2026-06-05 00:01', source: '搜狐', title: '中国vs新加坡6月5日19:30 世预赛后首场热身 邵佳一执教首秀' },
